@@ -1,9 +1,10 @@
 
+var canvas  = document.getElementById('wall');
+var context = canvas.getContext('2d');
 
-
-var canvas = document.getElementById('wall');
-var context=canvas.getContext();
-
-image = new Image();
+image     = new Image();
 image.src = 'dog.jpg';
-image.onloadcontext.drawImage(image, 100 ,100);
+
+image.onload = function () {
+  context.drawImage(this, 0, 0); 
+}
