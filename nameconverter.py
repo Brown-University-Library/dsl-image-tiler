@@ -12,6 +12,8 @@ import shutil
 # Upon completion, prints to terminal number of files and destination directory. This information could
 # be put in a text file if desired.
 
+# Can also probably use something to call this from the javascript
+
 
 sourcedir = '/Users/Allison/Documents/DSL/dsl-image-tiler/photos'
 destination = '/Users/Allison/Documents/DSL/dsl-image-tiler/photos3'

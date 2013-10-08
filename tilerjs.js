@@ -33,38 +33,30 @@ function loadImages(sources, callback){
 	}
 
 }
-var x = 0;
-var y = 0;
-loadImages(sources, function(images) {
-	context.drawImage(images.dog, 0, 0, 200, 100); 
-	
-	x+=210;
-	if (x >= 1000){
-		x = 0;
-		y += 110;
-	}
-	if (y>=1000){
-		break;
-	}
+*/
 
-});*/
 var numImgs = 7;
-var widthtoheight = 2/3;
+var srcDir = "/Users/Allison/Documents/DSL/dsl-image-tiler/photos2/";
+var basename = "photo";
+var extension = ".jpg";
 
+var canvaswidth = 1200;
+var canvasheight = 1200;
 
-var imgwidth = ;
-var imgheight
 for (var i = 0; i <= numImgs; i++)
 {
    x = 300;
    y = 0;
 
-
    (function(j){
-      var imgSrc = "photo"+j+".jpg";
+      var imgSrc = srcDir + basename + j + extension;
       var img = new Image();
       img.onload = function() {
-        context.drawImage(img,x*(j-1),y, 300, 200);
+        context.drawImage(img, x*(j-1), y, 300, 200);
+        /*if (x*j > canvaswidth-300){
+        	x = 300;
+        	y+=200;
+        }*/
       }
       img.src = imgSrc;
    })(i);
