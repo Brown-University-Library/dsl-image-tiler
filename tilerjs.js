@@ -1,6 +1,15 @@
 
+var ON_DISPLAY_WALL = false; // set this to true when testing on the display wall 
+
+var canvaswidth  = ON_DISPLAY_WALL ? 1920 * 4 : 1200;
+var canvasheight = ON_DISPLAY_WALL ? 1080 * 3 : 1200;
+
 var canvas  = document.getElementById('wall');
+canvas.width = canvaswidth;
+canvas.height = canvasheight;
+
 var context = canvas.getContext('2d');
+
 /*
 image     = new Image();
 image.src = 'dog.jpg';
@@ -39,9 +48,6 @@ var numImgs = 7;
 var srcDir = "photos2/";
 var basename = "photo";
 var extension = ".jpg";
-
-var canvaswidth = 1200;
-var canvasheight = 1200;
 
 for (var i = 0; i <= numImgs; i++)
 {
