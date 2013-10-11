@@ -36,7 +36,7 @@ function loadImages(sources, callback){
 */
 
 var numImgs = 7;
-var srcDir = "/Users/Allison/Documents/DSL/dsl-image-tiler/photos2/";
+var srcDir = "photos2/";
 var basename = "photo";
 var extension = ".jpg";
 
