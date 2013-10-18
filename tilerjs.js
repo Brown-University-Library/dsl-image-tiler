@@ -1,6 +1,14 @@
 
-var canvas  = document.getElementById('wall');
-var context = canvas.getContext('2d');
+/*
+<canvas id="wall" width="1200" height="1200"
+    style="border:1px solid #000000;">
+  </canvas>
+*/
+
+//var canvas  = document.getElementById('wall');
+
+
+
 /*
 image     = new Image();
 image.src = 'dog.jpg';
@@ -34,31 +42,49 @@ function loadImages(sources, callback){
 
 }
 */
+var canvas = document.createElement('canvas')
+canvas.width = 1500;
+canvas.height = 1500;
 
-var numImgs = 7;
+var context = canvas.getContext('2d');
+
+//fake values for now
+var WALLHEIGHT = 3240;
+var WALLWIDTH = 7680/2;
+var BEZEL = 10;
+var SCREENWIDTH = 300;
+var SCREENHEIGHT = 100;
+
+/* Varies by project */
+var numImgs = 6;	
 var srcDir = "/Users/Allison/Documents/DSL/dsl-image-tiler/photos2/";
 var basename = "photo";
 var extension = ".jpg";
 
-var canvaswidth = 1200;
-var canvasheight = 1200;
 
-for (var i = 0; i <= numImgs; i++)
+var pwidth = 150;
+var pheight = 100;
+
+var cols = 4;
+
+for (var i = 0; i < numImgs; i++)
 {
-   x = 300;
-   y = 0;
-
    (function(j){
-      var imgSrc = srcDir + basename + j + extension;
+      var imgSrc = srcDir + basename + (j+1) + extension;
       var img = new Image();
       img.onload = function() {
-        context.drawImage(img, x*(j-1), y, 300, 200);
-        /*if (x*j > canvaswidth-300){
-        	x = 300;
-        	y+=200;
-        }*/
+
+      	screenCol = Math.floor(pwidth * (j % cols) / SCREENWIDTH);
+		screenRow = Math.floor(pheight * (Math.floor(j / cols)) / SCREENHEIGHT);
+
+      	x = pwidth * (j % cols) + (BEZEL * screenCol);
+      	y = pheight * (Math.floor(j / cols))+ (BEZEL * screenRow);
+        
+        context.drawImage(img, x, y, pwidth, pheight);
       }
       img.src = imgSrc;
    })(i);
-
 }
+
+document.body.appendChild(canvas);
+context.drawImage(canvas, 0, 0);

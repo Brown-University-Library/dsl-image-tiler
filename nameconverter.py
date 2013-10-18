@@ -27,7 +27,7 @@ def copyAndRename(src, dest, base):
 		if (os.path.isfile(filepath)):
 			shutil.copy(filepath, dest)
 
-	count = 1;
+	count = 0;
 	allcopied = os.listdir(dest)
 	for copy in allcopied:
 		newname = os.rename(os.path.join(dest,copy), dest + "/" + base + str(count) + ".jpg")
