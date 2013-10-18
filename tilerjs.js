@@ -1,4 +1,5 @@
 
+
 /*
 <canvas id="wall" width="1200" height="1200"
     style="border:1px solid #000000;">
@@ -6,7 +7,6 @@
 */
 
 //var canvas  = document.getElementById('wall');
-
 
 
 /*
@@ -42,9 +42,11 @@ function loadImages(sources, callback){
 
 }
 */
+var ON_DISPLAY_WALL = false; // set this to true when testing on the display wall 
+
 var canvas = document.createElement('canvas')
-canvas.width = 1500;
-canvas.height = 1500;
+canvas.width = ON_DISPLAY_WALL ? 1920 * 4 : 1200;
+canvas.height = ON_DISPLAY_WALL ? 1080 * 3 : 1200;
 
 var context = canvas.getContext('2d');
 
@@ -64,6 +66,7 @@ var extension = ".jpg";
 
 var pwidth = 150;
 var pheight = 100;
+
 
 var cols = 4;
 
