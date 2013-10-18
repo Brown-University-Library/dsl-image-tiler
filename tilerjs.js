@@ -42,29 +42,32 @@ function loadImages(sources, callback){
 
 }
 */
-var ON_DISPLAY_WALL = false; // set this to true when testing on the display wall 
+var ON_DISPLAY_WALL = false; // set this to true when testing on the display wall
+var ON_WEB_SERVER   = false; // if running in a web server, set to true
 
-var canvas = document.createElement('canvas')
-canvas.width = ON_DISPLAY_WALL ? 1920 * 4 : 1200;
+var canvas    = document.createElement('canvas')
+canvas.width  = ON_DISPLAY_WALL ? 1920 * 4 : 1200;
 canvas.height = ON_DISPLAY_WALL ? 1080 * 3 : 1200;
 
 var context = canvas.getContext('2d');
 
 //fake values for now
-var WALLHEIGHT = 3240;
-var WALLWIDTH = 7680/2;
-var BEZEL = 10;
-var SCREENWIDTH = 300;
+var WALLHEIGHT   = 3240;
+var WALLWIDTH    = 7680/2;
+var BEZEL        = 10;
+var SCREENWIDTH  = 300;
 var SCREENHEIGHT = 100;
 
 /* Varies by project */
 var numImgs = 6;	
-var srcDir = "/Users/Allison/Documents/DSL/dsl-image-tiler/photos2/";
-var basename = "photo";
+
+// If running on a server, use relative addresses
+var srcDir    = (ON_WEB_SERVER ? '' : '/Users/Allison/Documents/DSL/dsl-image-tiler/') + 'photos2/';
+var basename  = "photo";
 var extension = ".jpg";
 
 
-var pwidth = 150;
+var pwidth  = 150;
 var pheight = 100;
 
 
@@ -74,11 +77,11 @@ for (var i = 0; i < numImgs; i++)
 {
    (function(j){
       var imgSrc = srcDir + basename + (j+1) + extension;
-      var img = new Image();
+      var img    = new Image();
       img.onload = function() {
 
       	screenCol = Math.floor(pwidth * (j % cols) / SCREENWIDTH);
-		screenRow = Math.floor(pheight * (Math.floor(j / cols)) / SCREENHEIGHT);
+		    screenRow = Math.floor(pheight * (Math.floor(j / cols)) / SCREENHEIGHT);
 
       	x = pwidth * (j % cols) + (BEZEL * screenCol);
       	y = pheight * (Math.floor(j / cols))+ (BEZEL * screenRow);
