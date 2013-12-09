@@ -15,11 +15,15 @@ import shutil
 # Can also probably use something to call this from the javascript
 
 
-sourcedir = '/Users/Allison/Documents/DSL/dsl-image-tiler/photos'
-destination = '/Users/Allison/Documents/DSL/dsl-image-tiler/photos3'
-basename = 'photo'
 
-def copyAndRename(src, dest, base):
+# sourcedir = '/Users/Allison/Documents/DSL/dsl-image-tiler/icons'
+# destination = '/Users/Allison/Documents/DSL/dsl-image-tiler/iconsConvert'
+sourcedir = '/Volumes/Flashdrive/DSL'
+destination = '/Volumes/Flashdrive/DSL/converted'
+basename = 'snap'
+exten = '.jpg'
+
+def copyAndRename(src, dest, base, ext):
 	os.makedirs(dest)
 	allphotos = os.listdir(src)
 	for pic in allphotos:
@@ -30,9 +34,9 @@ def copyAndRename(src, dest, base):
 	count = 0;
 	allcopied = os.listdir(dest)
 	for copy in allcopied:
-		newname = os.rename(os.path.join(dest,copy), dest + "/" + base + str(count) + ".jpg")
+		newname = os.rename(os.path.join(dest,copy), dest + "/" + base + str(count+1) + ext)
 		count+=1
 	print str(count) + " photos copied to: '" + dest + "'"
 
 
-copyAndRename(sourcedir,destination,basename)
+copyAndRename(sourcedir,destination,basename,exten)
