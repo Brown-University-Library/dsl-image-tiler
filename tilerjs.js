@@ -17,11 +17,11 @@ var SCREENWIDTH  = ON_DISPLAY_WALL ? 1920 : 300;
 var SCREENHEIGHT = ON_DISPLAY_WALL ? 1080 : 100;
 
 
-
-// If running on a server, use relative addresses
 var srcDir    = (ON_WEB_SERVER ? '' : '/Volumes/Flashdrive/DSL/converted/');
 var basename  = "snap";
 var extension = ".jpg";
+
+
 
 /* Varies by project */
 var numImgs = 946;  
@@ -33,6 +33,7 @@ var cols = 60;
 for (var i = 0; i < numImgs; i++)
 {
    (function(j){
+
         var imgSrc = srcDir + basename + (j+1) + extension;
         var img    = new Image();
       
@@ -40,6 +41,7 @@ for (var i = 0; i < numImgs; i++)
 
         screenCol = Math.floor(pwidth * (j % cols) / SCREENWIDTH);
         screenRow = Math.floor(pheight * (Math.floor(j / cols)) / SCREENHEIGHT);
+
 
         x = pwidth * (j % cols) + (BEZEL * screenCol);
         y = pheight * (Math.floor(j / cols))+ (BEZEL * screenRow);
