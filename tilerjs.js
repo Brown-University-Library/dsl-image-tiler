@@ -20,6 +20,8 @@ var SCREENHEIGHT = ON_DISPLAY_WALL ? 1080 : 100;
 var NUMBER_OF_MONITORS_ACROSS = 4;
 var NUMBER_OF_MONITORS_DOWN   = 3;
 
+var TOTAL_NUMBER_OF_IMAGES = 75963; // Currently hard-coded
+
 var srcDir    = (ON_WEB_SERVER ? 'img/the-kid/' : '/Volumes/Flashdrive/DSL/converted/');
 var basename  = 'movie';
 var extension = '.jpg';
@@ -35,7 +37,9 @@ var pheight = pwidth * .75;
 var numberOfRows = (SCREENHEIGHT * NUMBER_OF_MONITORS_DOWN) / pheight;
 var numImgs = cols * numberOfRows;
 
-for (var i = 0; i < numImgs; i++)
+var skipFrames = Math.floor(TOTAL_NUMBER_OF_IMAGES / numImgs);
+
+for (var i = 0; i < numImgs; i += skipFrames)
 {
   (function(j) {
   
