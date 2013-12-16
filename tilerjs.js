@@ -27,11 +27,12 @@ var extension = '.jpg';
 /* Varies by project */
 
 var numImgs = 946;
-var pwidth  = 150 / 2;
-var pheight = 50;
 
 var columnsPerMonitor = 15; // Should be an integer to avoid straddling bezels
 var cols = NUMBER_OF_MONITORS_ACROSS * columnsPerMonitor;
+
+var pwidth  = SCREENWIDTH / cols;
+var pheight = pwidth * .75;
 
 for (var i = 0; i < numImgs; i++)
 {
