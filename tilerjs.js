@@ -39,11 +39,11 @@ var numImgs = cols * numberOfRows;
 
 var skipFrames = Math.floor(TOTAL_NUMBER_OF_IMAGES / numImgs);
 
-for (var i = 0; i < numImgs; i += skipFrames)
+for (var i = 0; i < numImgs; i++)
 {
   (function(j) {
   
-    var imgSrc = srcDir + basename + (j+1) + extension;
+    var imgSrc = srcDir + basename + ((j + 1) * skipFrames) + extension;
     var img    = new Image();
     
     img.onload = function() {
