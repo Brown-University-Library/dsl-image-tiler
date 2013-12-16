@@ -3,8 +3,8 @@
 //              --scene-prefix=snap --scene-path=/Volumes/Flashdrive/DSL/
 // FFMPEG command: ffmpeg -i movie.mpg snap%d.jpg
 
-var ON_DISPLAY_WALL = false; // set this to true when testing on the display wall
-var ON_WEB_SERVER   = false; // if running in a web server, set to true
+var ON_DISPLAY_WALL = true; // set this to true when testing on the display wall
+var ON_WEB_SERVER   = true; // if running in a web server, set to true
 
 var canvas = document.createElement('canvas');
 
@@ -20,7 +20,7 @@ var SCREENHEIGHT = ON_DISPLAY_WALL ? 1080 : 100;
 var NUMBER_OF_MONITORS_ACROSS = 4;
 var NUMBER_OF_MONITORS_DOWN   = 3;
 
-var srcDir    = (ON_WEB_SERVER ? 'img/dsl-tiler/the-kid/' : '/Volumes/Flashdrive/DSL/converted/');
+var srcDir    = (ON_WEB_SERVER ? 'img/the-kid/' : '/Volumes/Flashdrive/DSL/converted/');
 var basename  = 'movie';
 var extension = '.jpg';
 
