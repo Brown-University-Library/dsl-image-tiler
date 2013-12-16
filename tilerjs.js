@@ -31,7 +31,7 @@ var numImgs = 946;
 var columnsPerMonitor = 15; // Should be an integer to avoid straddling bezels
 var cols = NUMBER_OF_MONITORS_ACROSS * columnsPerMonitor;
 
-var pwidth  = SCREENWIDTH / cols;
+var pwidth  = (SCREENWIDTH * NUMBER_OF_MONITORS_ACROSS) / cols;
 var pheight = pwidth * .75;
 
 for (var i = 0; i < numImgs; i++)
