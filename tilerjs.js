@@ -20,7 +20,7 @@ var SCREENHEIGHT = ON_DISPLAY_WALL ? 1080 : 100;
 var NUMBER_OF_MONITORS_ACROSS = 4;
 var NUMBER_OF_MONITORS_DOWN   = 3;
 
-var srcDir    = (ON_WEB_SERVER ? 'images/' : '/Volumes/Flashdrive/DSL/converted/');
+var srcDir    = (ON_WEB_SERVER ? 'img/dsl-tiler/the-kid/' : '/Volumes/Flashdrive/DSL/converted/');
 var basename  = 'movie';
 var extension = '.jpg';
 
